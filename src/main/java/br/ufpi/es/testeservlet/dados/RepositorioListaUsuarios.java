@@ -33,6 +33,43 @@ public class RepositorioListaUsuarios implements IRepositorioUsuarios {
 		}
 		return usuario;
 	}
+	
+	/**
+	 * Faz a busca de usuário de acordo com o tipo selecionado
+	 * @param conteudo dado do usuário
+	 * @param tipo tipo da busca pode ser nome, email, ou login
+	 * @return lista contendo o resultado da busca
+	 */
+	public List<Usuario> buscarPorConteudoETipo(String conteudo, String tipo){
+		List<Usuario> lista = new LinkedList<Usuario>();
+		switch (tipo) {
+		case "nome":
+			for (Usuario u:listaUsuarios) {
+				if (u.getNome().equals(conteudo)) {
+					lista.add(u);
+				}
+			}
+			break;
+		case "email":
+			for(Usuario u:listaUsuarios) {
+				if (u.getEmail().equals(conteudo)) {
+					lista.add(u);
+				}
+			}
+			break;
+		case "login":
+			for(Usuario u:listaUsuarios) {
+				if(u.getLogin().equals(conteudo)) {
+					lista.add(u);
+				}
+			}
+			break;
+		default:
+			lista = null;
+			break;
+		}
+		return lista;
+	}
 
 	public void alterar(Usuario original, Usuario novo) {
 		// TODO Auto-generated method stub

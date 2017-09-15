@@ -30,6 +30,12 @@
   <display-name>Principal</display-name>
   <servlet-class>br.ufpi.es.testeservlet.servicos.Principal</servlet-class>
  </servlet>
+ <servlet>
+ 	<servlet-name>BuscarUsuario</servlet-name>
+ 	<display-name>BuscarUsuario</display-name>
+ 	<description></description>
+ 	<servlet-class>br.ufpi.es.testeservlet.servicos.BuscarUsuario</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>EfetuarLogin</servlet-name>
   <url-pattern>/efetuarlogin</url-pattern>
@@ -49,6 +55,10 @@
  <servlet-mapping>
   <servlet-name>Principal</servlet-name>
   <url-pattern>/principal</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>BuscarUsuario</servlet-name>
+ 	<url-pattern>/buscarusuario</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>60</session-timeout>

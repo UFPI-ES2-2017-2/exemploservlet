@@ -11,18 +11,22 @@
 </head>
 <body>
 
-<%  
-// retrieve your list from the request, with casting 
-LinkedList<Usuario> list = (LinkedList<Usuario>) request.getAttribute("usuarios");
+	<%
+		// retrieve your list from the request, with casting 
+		LinkedList<Usuario> list = (LinkedList<Usuario>) request.getAttribute("usuarios");
 
-// print the information about every category of the list
-for(Usuario u : list) {
-    out.println(u.getId() + " - ");
-    out.println(u.getNome() + " - ");
-    out.println(u.getEmail());
-    out.println("<br>");
-}
-%>
+		if (list.size() > 0) {
+			// print the information about every category of the list
+			for (Usuario u : list) {
+				out.println(u.getId() + " - ");
+				out.println(u.getNome() + " - ");
+				out.println(u.getEmail());
+				out.println("<br>");
+			}
+		} else {
+			out.println("Nenhum resultado encontrado!");
+		}
+	%>
 
 </body>
 </html>

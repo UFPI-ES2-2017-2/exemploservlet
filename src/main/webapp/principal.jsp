@@ -16,9 +16,11 @@
 		out.println("E-mail: " + usuario.getEmail() + "<br>");
 	%>
 	<br>
+	<a href="#">Inserir Usuario</a>
+	<br>
 	<a href="listarusuarios">Listar Usuários</a>
 	<br>
-	<a href="#">Buscar Usuário</a>
+	<a href="buscarusuario">Buscar Usuário</a>
 	<br>
 	<a href="#">Alterar Usuário</a>
 	<br>
