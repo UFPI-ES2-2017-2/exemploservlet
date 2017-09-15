@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+                         "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+ <display-name>Archetype Created Web Application</display-name>
+ <servlet>
+  <servlet-name>EfetuarLogin</servlet-name>
+  <display-name>EfetuarLogin</display-name>
+  <description>Servlet que faz o controle de login de usuário registrado</description>
+  <servlet-class>br.ufpi.es.testeservlet.servicos.EfetuarLogin</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>ListaUsuarios</servlet-name>
+  <display-name>ListaUsuarios</display-name>
+  <description>Lista todos os usuários cadastrados</description>
+  <servlet-class>br.ufpi.es.testeservlet.servicos.ListaUsuarios</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>SessionTrack</servlet-name>
+  <display-name>SessionTrack</display-name>
+  <servlet-class>br.ufpi.es.testeservlet.controle.SessionTrack</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>EfetuarLogout</servlet-name>
+  <display-name>EfetuarLogout</display-name>
+  <servlet-class>br.ufpi.es.testeservlet.servicos.EfetuarLogout</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>Principal</servlet-name>
+  <display-name>Principal</display-name>
+  <servlet-class>br.ufpi.es.testeservlet.servicos.Principal</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>EfetuarLogin</servlet-name>
+  <url-pattern>/efetuarlogin</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>ListaUsuarios</servlet-name>
+  <url-pattern>/listarusuarios</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>SessionTrack</servlet-name>
+  <url-pattern>/sessiontrack</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>EfetuarLogout</servlet-name>
+  <url-pattern>/efetuarlogout</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Principal</servlet-name>
+  <url-pattern>/principal</url-pattern>
+ </servlet-mapping>
+ <session-config>
+  <session-timeout>60</session-timeout>
+ </session-config>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/erro.jsp</location>
+ </error-page>
+</web-app>
