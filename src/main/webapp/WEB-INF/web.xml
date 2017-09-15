@@ -36,6 +36,12 @@
  	<description></description>
  	<servlet-class>br.ufpi.es.testeservlet.servicos.BuscarUsuario</servlet-class>
  </servlet>
+ <servlet>
+ 	<servlet-name>ListaUsuariosJSON</servlet-name>
+ 	<display-name>ListaUsuariosJSON</display-name>
+ 	<description></description>
+ 	<servlet-class>br.ufpi.es.testeservlet.servicos.ListaUsuariosJSON</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>EfetuarLogin</servlet-name>
   <url-pattern>/efetuarlogin</url-pattern>
@@ -59,6 +65,10 @@
  <servlet-mapping>
  	<servlet-name>BuscarUsuario</servlet-name>
  	<url-pattern>/buscarusuario</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>ListaUsuariosJSON</servlet-name>
+ 	<url-pattern>/listarusuariosjson</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>60</session-timeout>

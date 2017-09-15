@@ -24,6 +24,8 @@
 	<br>
 	<a href="#">Alterar Usuário</a>
 	<br>
+	<a href="listarusuariosjson">Listar Usuário em formato JSON</a>
+	<br>
 	<a href="efetuarlogout">Logout</a>
 </body>
 </html>
