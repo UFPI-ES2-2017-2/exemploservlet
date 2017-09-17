@@ -26,7 +26,7 @@
 	<br>
 	<a href="listarusuariosjson">Listar Usuário em formato JSON</a>
 	<br>
-	<a href="">Faz upload de arquivo</a>
+	<a href="uploadfile">Faz upload de arquivo</a>
 	<br>
 	<a href="efetuarlogout">Logout</a>
 </body>
