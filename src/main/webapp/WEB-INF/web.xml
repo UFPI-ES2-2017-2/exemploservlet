@@ -42,6 +42,12 @@
  	<description></description>
  	<servlet-class>br.ufpi.es.testeservlet.servicos.ListaUsuariosJSON</servlet-class>
  </servlet>
+ <servlet>
+ 	<servlet-name>UploadFile</servlet-name>
+ 	<display-name>UploadFile</display-name>
+ 	<description>Controla o upload de um arquivo</description>
+ 	<servlet-class>br.ufpi.es.testeservlet.servicos.UploadFile</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>EfetuarLogin</servlet-name>
   <url-pattern>/efetuarlogin</url-pattern>
@@ -69,6 +75,10 @@
  <servlet-mapping>
  	<servlet-name>ListaUsuariosJSON</servlet-name>
  	<url-pattern>/listarusuariosjson</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+ 	<servlet-name>UploadFile</servlet-name>
+ 	<url-pattern>/uploadfile</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>60</session-timeout>

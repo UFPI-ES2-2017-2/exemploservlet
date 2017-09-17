@@ -22,27 +22,29 @@ public class ListaUsuariosJSON extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RepositorioListaUsuarios repositorio;
 	private ControladorUsuarios controlador;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ListaUsuariosJSON() {
-        super();
-        repositorio = new RepositorioListaUsuarios();
-        repositorio.populaUsuarios();
-        controlador = new ControladorUsuarios(repositorio);
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ListaUsuariosJSON() {
+		super();
+		repositorio = new RepositorioListaUsuarios();
+		repositorio.populaUsuarios();
+		controlador = new ControladorUsuarios(repositorio);
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		List<Usuario> lista = controlador.getUsuarios();
-		
+
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		
+
 		String jsonStr = gson.toJson(lista);
-		
+
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().append(jsonStr);
