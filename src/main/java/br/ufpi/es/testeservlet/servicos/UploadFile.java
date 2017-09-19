@@ -13,8 +13,6 @@ import javax.servlet.ServletConfig;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.hamcrest.core.IsInstanceOf;
-
 import br.ufpi.es.testeservlet.controle.upload.ArmazenaItemArquivo;
 import br.ufpi.es.testeservlet.controle.upload.ProcessaUpload;
 import br.ufpi.es.testeservlet.utilidades.Constantes;
