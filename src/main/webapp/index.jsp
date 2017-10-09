@@ -12,7 +12,7 @@
 <li>Consulta de usuário por tipo de atributo</li>
 <li>Upload de arquivos privado</li>
 </ul>
-<p>Dúvidas, sugestões ou correção de erros/falhas envie um e-mail para armando@ufpi.edu.br
+<p>Dúvidas, sugestões ou correção de erros/falhas envie um e-mail para armando@ufpi.edu.br</p>
 <a href="efetuarlogin">Efetuar Login</a>
 </body>
 </html>

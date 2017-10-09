@@ -14,6 +14,7 @@
 	<%
 		// retrieve your list from the request, with casting 
 		LinkedList<Usuario> list = (LinkedList<Usuario>) request.getAttribute("usuarios");
+		String mensagem = request.getAttribute("mensagem").toString();
 
 		if (list.size() > 0) {
 			// print the information about every category of the list
@@ -24,7 +25,7 @@
 				out.println("<br>");
 			}
 		} else {
-			out.println("Nenhum resultado encontrado!");
+			out.println(mensagem);
 		}
 	%>
 

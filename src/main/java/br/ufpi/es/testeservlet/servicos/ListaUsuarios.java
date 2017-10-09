@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import br.ufpi.es.testeservlet.controle.ControladorUsuarios;
 import br.ufpi.es.testeservlet.dados.RepositorioListaUsuarios;
+import br.ufpi.es.testeservlet.dados.excecoes.UsuarioNaoExisteException;
 import br.ufpi.es.testeservlet.entidades.Usuario;
 
 /**
@@ -37,7 +38,8 @@ public class ListaUsuarios extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Usuario> lista = controlador.getUsuarios();
+		List<Usuario> lista=null;
+		String mensagem="";
 		/*
 		 * for (Usuario u:lista){ response.getWriter().append("Usuario : ["
 		 * +u.getId() + "]" + " - " + u.getNome() + " - " + u.getEmail()); }
@@ -45,6 +47,12 @@ public class ListaUsuarios extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("usuario") != null) {
+			try {
+				lista = controlador.getUsuarios();
+			} catch (UsuarioNaoExisteException e) {
+				mensagem = e.getLocalizedMessage();
+			}
+			request.setAttribute("mensagem", mensagem);
 			request.setAttribute("usuarios", lista);
 			request.getRequestDispatcher("lista-usuarios.jsp").forward(request, response);
 		} else {

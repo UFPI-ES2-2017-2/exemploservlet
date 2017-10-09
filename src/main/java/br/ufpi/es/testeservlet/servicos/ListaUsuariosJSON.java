@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder;
 
 import br.ufpi.es.testeservlet.controle.ControladorUsuarios;
 import br.ufpi.es.testeservlet.dados.RepositorioListaUsuarios;
+import br.ufpi.es.testeservlet.dados.excecoes.UsuarioNaoExisteException;
 import br.ufpi.es.testeservlet.entidades.Usuario;
 
 /**
@@ -39,15 +40,23 @@ public class ListaUsuariosJSON extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Usuario> lista = controlador.getUsuarios();
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-		String jsonStr = gson.toJson(lista);
-
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().append(jsonStr);
+		
+		List<Usuario> lista=null;
+		String mensagem = "";
+		try {
+			lista = controlador.getUsuarios();
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			String jsonStr = gson.toJson(lista);
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			request.setAttribute("mensagem", mensagem);			
+			response.getWriter().append(jsonStr);
+		} catch (UsuarioNaoExisteException e) {
+			mensagem = e.getMessage();
+		} catch (Exception ex){
+			mensagem = ex.getMessage();
+		}
+		
 	}
 
 }

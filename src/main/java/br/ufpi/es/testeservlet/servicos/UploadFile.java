@@ -87,9 +87,9 @@ public class UploadFile extends HttpServlet {
 			} catch (Exception ex) {
 				throw new ServletException(ex);
 			} finally {
-				System.out.println("Upload do arquivo " + nomeArquivo + " concluido com " + processamento + "!");
+				System.out.println("Upload do arquivo " + nomeArquivo + " realizado com " + processamento + "!");
 				form.limpaPagina();
-				form.montaPagina("Upload do arquivo " + nomeArquivo + " concluido com " + processamento + "!");
+				form.montaPagina("Upload do arquivo " + nomeArquivo + " realizado com " + processamento + "!");
 				saida.print(form.pagina());
 			}
 		} else {

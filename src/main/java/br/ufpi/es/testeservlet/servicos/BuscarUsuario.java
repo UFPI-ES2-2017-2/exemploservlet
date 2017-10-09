@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import br.ufpi.es.testeservlet.controle.ControladorUsuarios;
 import br.ufpi.es.testeservlet.dados.RepositorioListaUsuarios;
+import br.ufpi.es.testeservlet.dados.excecoes.UsuarioNaoExisteException;
 import br.ufpi.es.testeservlet.entidades.Usuario;
 
 /**
@@ -49,13 +50,18 @@ public class BuscarUsuario extends HttpServlet {
 		String conteudo = request.getParameter("conteudobusca");
 		String tipo = request.getParameter("opcaotipo");
 		HttpSession session = request.getSession();
+		String mensagem = "";
 		
 		List<Usuario> lista = new LinkedList<Usuario>();
 		
-		lista = controlador.buscaPorConteudoETipo(conteudo, tipo);
-		
 		//checa se tem uma sessão válida e reencaminha a resposta para exibir o resultado da busca
 		if (session.getAttribute("usuario") != null) {
+			try {
+				lista = controlador.buscaPorConteudoETipo(conteudo, tipo);
+			} catch (UsuarioNaoExisteException e) {
+				mensagem = e.getMessage(); 
+			}
+			request.setAttribute("mensagem", mensagem);
 			request.setAttribute("usuarios", lista);
 			request.getRequestDispatcher("lista-usuarios.jsp").forward(request, response);
 		}else {

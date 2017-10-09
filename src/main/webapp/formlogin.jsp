@@ -8,8 +8,8 @@
 </head>
 <body>
 <form method="post" action="efetuarlogin">
-Usuário:<input type="text" name="login"><br>
-Senha:<input type="password" name="senha"><br>
+Usuário:<input type="text" name="login" value="armando"><br>
+Senha:<input type="password" name="senha" value="armando"><br>
 <input type="submit" value="Logar">
 <input type="button" value="Cancelar">
 </form>

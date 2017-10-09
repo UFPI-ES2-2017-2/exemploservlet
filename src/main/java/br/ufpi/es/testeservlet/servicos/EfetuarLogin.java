@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import br.ufpi.es.testeservlet.controle.ControladorUsuarios;
 import br.ufpi.es.testeservlet.dados.RepositorioListaUsuarios;
+import br.ufpi.es.testeservlet.dados.excecoes.UsuarioNaoExisteException;
 import br.ufpi.es.testeservlet.entidades.Usuario;
 
 /**
@@ -50,19 +51,28 @@ public class EfetuarLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login;
 		String senha;
+		String mensagem="";
 		
 		login = request.getParameter("login");
 		senha = request.getParameter("senha");
-		Usuario usuario = controlador.buscar(login, senha);
+		Usuario usuario=null;
 		
-		if (usuario != null){
-			HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		
+		try {
+			usuario = controlador.buscar(login, senha);
+		} catch (UsuarioNaoExisteException e) {
+			mensagem = e.getMessage();
+		}
+		
+		if (usuario != null){	
 			session.setAttribute("email", usuario.getEmail());
 			Date criacaoSessaoUsuario = new Date(session.getCreationTime());
 			session.setAttribute("usuario", usuario);
 			System.out.println("Usuario " + session.getAttribute("email") + " logado as" + criacaoSessaoUsuario);
 			response.sendRedirect("principal");
 		}else{
+			session.setAttribute("mensagem", mensagem);
 			response.sendRedirect("formlogin.jsp");
 		}
 		
